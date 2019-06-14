@@ -22,9 +22,10 @@ component extends="preside.system.config.WireBox" {
         var settings = getColdbox().getSettingStructure();
 
         map( "userProfileImageStorageProvider" ).to( "preside.system.services.fileStorage.FileSystemStorageProvider" )
-            .initArg( name="rootDirectory" , value=settings.uploads_directory & "/profilePictures" )
-            .initArg( name="trashDirectory", value=settings.uploads_directory & "/.trash" )
-            .initArg( name="rootUrl"       , value="" );
+            .initArg( name="rootDirectory"    , value=settings.uploads_directory & "/profilePictures" )
+            .initArg( name="privateDirectory" , value=settings.uploads_directory & "/profilePictures" )
+            .initArg( name="trashDirectory"   , value=settings.uploads_directory & "/.trash" )
+            .initArg( name="rootUrl"          , value="" );
     }
 
 }
