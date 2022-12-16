@@ -68,3 +68,15 @@ If your codebase has supplied custom batch operations using one of the customisa
 
 See [[datamanager-customization-multirecordaction]] for an updated guide to creating batch operations. Scanning your codebase for references to `multiRecordAction(` will give you an indication of where this has been customised.
 
+### Required validation i18n
+
+We have now introduced data placeholder for `cms:validation.required.default={1} is required`. 
+If you project implement custom validation code as below,
+```lucee
+custom validation.addError( fieldName=someFieldName, message=translateResource( "cms:validation.required.default" ) );
+```
+
+then you need to make sure you pass the field label for the data, such as below
+```lucee
+custom validation.addError( fieldName=someFieldName, message=translateResource( uri="cms:validation.required.default", data=[ "Some field name" ] ) );
+```
